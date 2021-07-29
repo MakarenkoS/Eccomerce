@@ -1,0 +1,33 @@
+.user {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__items-quantity {
+    display: none;
+  }
+  &__items-quantity--show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 68px;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    background-color: #F44336;
+    color: #ffffff;
+    font-family: "Quicksand";
+    font-weight: 700;
+    size: 14px;
+    line-height: 17px;
+    border-radius: 50%;
+   
+  }
+
+  &__avatar {
+    margin-left: 15px;
+    border-radius: 50%;
+  }
+  
+}

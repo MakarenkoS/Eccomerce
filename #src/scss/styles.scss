@@ -1,0 +1,16 @@
+$fontSize: 10;
+$fontFamily: "Inter";
+
+@import "logo.scss";
+
+body {
+  background-color: #ffffff;
+  font-family: $fontFamily;
+  box-sizing: border-box;
+  color: #5A5B6A;
+}
+
+*,*::after,*::before {
+	box-sizing: inherit;
+}
+

@@ -1,0 +1,25 @@
+.button {
+  font-family: "Quicksand";
+  font-weight: 700;
+  font-style: normal;
+  padding: 5px 12px;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0.0075em;
+  border-radius: 4px;
+  background-color: transparent;
+  color: #2264D1;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px rgba(27, 78, 163, 0.2), 0px 4px 8px rgba(41, 121, 255, 0.2);
+
+  &:focus {
+    border: 1px solid #9DC2FF;
+    box-shadow: none;
+  }
+
+  &:hover {
+    color: #557bb8;
+  }
+
+}
