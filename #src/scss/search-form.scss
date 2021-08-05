@@ -1,10 +1,12 @@
 .search-form {
+ 
   position: relative;
   width: 1030px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: row;
+
   &::after {
     content: "";
     position: absolute;
@@ -18,6 +20,7 @@
   }
 
   &__field {
+    transition: all 0.3s ease;
     width: 667px;
     height: 48px;
     border-radius: 99px;
@@ -28,7 +31,13 @@
     font-size: 20px;
     font-weight: 400;
     line-height: 158%;
-    outline-color: rgba(0,0,0,0.1);
+    outline: none;
+    &:hover {
+      opacity: 0.75;
+    }
+    &:focus {
+      border: 1px solid rgba(0,0,0,0.5);
+    }
   }
 
   &__hint {
@@ -57,4 +66,3 @@
   }
   
 }
-

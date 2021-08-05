@@ -1,0 +1,97 @@
+@import "variables.scss";
+
+
+.categories {
+  width: 1490px;
+  padding-left: 40px;
+  font-family: "Inter";
+  &__list {
+    margin: 0;
+    padding: 0;
+    padding-left: 8px;
+    list-style: none;
+  }
+
+  &__link {
+    cursor: pointer;
+    text-decoration: none;
+    color: #19191D;
+  }
+
+  &__name {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 150%;
+    color: #19191D;
+    letter-spacing: 0.0275em;
+    padding-top: 5px;
+  }
+
+  &__name--with-description {
+    min-height: 50px;
+  }
+
+  &__name--with-description .caret{
+    top: 25px;
+  }
+
+  &__name--title {
+    font-weight: 500;
+  }
+
+  &__description {
+    position: absolute;
+    left: 0;
+    top: 25px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 143%;
+    color: #787885;
+  }
+
+  &__showmore-button {
+    margin-top: 5px;
+    padding: 12px 12px 12px 12px;
+    cursor: pointer;
+    position: relative;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    outline: none;
+    border: none;
+    color: #2264D1;
+    background: #EBF2FF;
+    border-radius: 4px;
+    &:hover {
+      background: #cad6ee;
+    }
+  }
+
+  &__showmore-button--caret {
+    padding: 12px 48px 12px 12px;
+    &::after {
+      position: absolute;
+      content: "";
+      
+      right: 25px;
+      width: 12px;
+      height: 9px;
+      top: 17px;
+      right: 20px;
+      font-size: 20px;
+      background-image: url("./../img/icons/icons.svg#caretGrey");
+      background-repeat: no-repeat;
+      background-size: fit;
+    }
+
+  }  
+}

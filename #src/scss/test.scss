@@ -1,0 +1,22 @@
+.test {
+  margin: 0 auto;
+  width: 1400px;
+  display: grid;
+  grid-gap: 10px;
+  // grid-template-rows:  100px 200px 140%;
+  grid-template-columns: repeat(3, minmax(100px, 200px)); /* 3 столбца */
+  align-items: center;
+
+  &__grid {
+    border: 1px solid blue; 
+    color: white;
+    font-size: 50px;
+    padding: 30px 10px;
+    background: green;
+    text-align: center;
+    &--1 {
+      grid-column-start: 1;
+      grid-column-end: 4;
+    }
+  }
+}

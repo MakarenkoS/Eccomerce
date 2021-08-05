@@ -1,0 +1,16 @@
+@import "variables.scss";
+
+.departments {
+  width: 1490px;
+  margin: 0 auto;
+  margin-top: 44px;
+
+  &__button {
+    width: 304px;
+  }
+
+  &__categories {
+    margin-top: 40px;
+  }
+}
+

@@ -1,7 +1,6 @@
-$fontSize: 10;
-$fontFamily: "Inter";
 
 @import "logo.scss";
+@import "variables.scss";
 
 body {
   background-color: #ffffff;
@@ -14,3 +13,8 @@ body {
 	box-sizing: inherit;
 }
 
+
+.container {
+  width: 1920px;
+  margin: 0 auto;
+}
