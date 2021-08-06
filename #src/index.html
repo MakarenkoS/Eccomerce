@@ -385,6 +385,60 @@
             </div>      
           </div>
         </section>
+        <section class="goods">
+
+          <div class="goods__sort-list condition-list">
+            <div class="condition-list__field condition-list__field--usability">
+              <span class="condition-list__info">sort by</span>
+              <select name="usability" class="condition-list__menu  condition-list__menu--usability">
+                <option value="Useless-first">Useless first</option>
+                <option value="Useless-last">Useless last</option>
+              </select>
+            </div>
+
+            <div class="condition-list__field condition-list__field--quality">
+              <select name="quality" class="condition-list__menu  condition-list__menu--quality">
+                <option value="" disabled selected hidden>Condition</option>
+                <option value="Good">Good</option>
+                <option value="Normal">Normal</option>
+                <option value="Poor">Poor</option>
+              </select>
+            </div>
+
+            <div class="condition-list__field condition-list__field--delivery">
+              <select name="delivery" class="condition-list__menu  condition-list__menu--delivery">
+                <option value="" disabled selected hidden>Delivery options</option>
+                <option value="Postament">Postament</option>
+                <option value="Сourier">Сourier</option>
+                <option value="Pickup">Pickup</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="goods__show-options show-options">
+
+            <div class="show-options__wrapper show-options__wrapper--filter">
+              <label class="show-options__label">
+                <input type="radio" class="visually-hidden" name="radio" >
+                <span class="show-options__radio">Show all</span>
+              </label>
+              <label class="show-options__label">
+                <input type="radio" class="visually-hidden" name="radio"  checked>
+                <span class="show-options__radio">Auction</span>
+              </label>
+              <label class="show-options__label">
+                <input type="radio" class="visually-hidden" name="radio">
+                <span class="show-options__radio">Buy now</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="show-options__wrapper show-options__wrapper--view">
+            
+          </div>
+
+
+        </section>
         <!-- <section class="test">
           <div class="test__grid test__grid--1">1</div>
           <div class="test__grid test__grid--2">2</div>
