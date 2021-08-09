@@ -26,10 +26,20 @@
     display: inline-block;
     position: relative;
     padding: 1px 6px 1px 1px;
-    border: 1px solid blue;
     border: 1px solid #5A5B6A;
     border-radius: 4px;
 
+    & select {
+      color: #787885;
+    }
+
+    &:hover select {
+      color: #19191D;
+    }
+
+    &:hover {
+      border: 1px solid #19191D;
+    }
     &--usability {
       width: 136px;
     }
@@ -48,7 +58,10 @@
 
     &:hover .condition-list__menu-use {
       color: #19191D;
+
     }
+
+  
 
     &::after {
       font-size: 10px;

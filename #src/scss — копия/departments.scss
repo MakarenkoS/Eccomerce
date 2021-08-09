@@ -1,0 +1,31 @@
+@import "variables.scss";
+
+.departments {
+  width: 355px;
+  padding-top: 24px;  
+
+  &__button {
+    width: 304px;
+    position: relative;
+
+    &--icon {
+      position: absolute;
+      left: 19px;
+      top: 21px;
+      fill: #2264D1;
+    }
+
+    &:hover .departments__button--icon {
+      fill: #557bb8;
+    }
+
+    &:focus .departments__button--icon {
+      fill: #9DC2FF;
+    }
+  }
+
+  &__categories {
+    margin-top: 40px;
+  }
+}
+

@@ -1,0 +1,42 @@
+@import "variables.scss";
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 0 0 auto;
+
+  &__list {
+    width: 364px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    display: inline-block;
+    padding-right: 35px;
+    &:hover {
+      color: $hoverColor;;
+    }
+  }
+
+  &__link {
+    transition: color 0.3s ease;
+    text-decoration: none;
+    font-family: "Inter";
+    color: #5A5B6A;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.004em;
+    &:hover {
+      color: $hoverColor;
+    }
+  }
+
+  &__user {
+    width: 282px;
+    
+  }
+}

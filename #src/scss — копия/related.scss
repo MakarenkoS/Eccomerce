@@ -1,0 +1,38 @@
+.related {
+  margin-top: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 143%;
+  align-items: center;
+
+  &__list {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    padding: 0;
+    margin-left: 9px;
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: nowrap;
+    list-style: none;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 774px;
+    height: 32px;
+  }
+
+  &__item {
+    color: #4a4b57;
+    background-color: #EDEDF0;
+    padding: 6px 12px;
+    border-radius: 99px;
+    cursor: pointer;
+  }
+}

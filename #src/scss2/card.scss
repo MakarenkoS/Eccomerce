@@ -1,0 +1,86 @@
+@import "variables.scss";
+
+.cards {
+}
+
+.card {
+  width: 259px;
+  height: 472px;
+  padding: 16px 16px 12px;
+
+  &__image {
+  }
+
+  &__description {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.0275em;
+  }
+
+  &__price {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.87);
+  }
+
+  &__info {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 143%;
+    letter-spacing: 0.018em;
+    color: #787885;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: #19191d;
+    &:hover {
+      color: $hoverColor;
+    }
+  }
+
+  &__watch-button {
+    position: relative;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 143%;
+    letter-spacing: 0.018em;
+    color: #2264d1;
+    padding-left: 31px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-right: 12px;
+  }
+
+  &__button-icon {
+    position: absolute;
+    left: 11px;
+    top: 8px;
+    fill: #2264d1;
+  }
+
+  &__rating-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

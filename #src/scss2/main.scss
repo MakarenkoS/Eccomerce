@@ -1,0 +1,29 @@
+
+@import "logo.scss";
+@import "variables.scss";
+
+body {
+  background-color: #ffffff;
+  font-family: $fontFamily;
+  box-sizing: border-box;
+  color: #5A5B6A;
+}
+
+*,*::after,*::before {
+	box-sizing: inherit;
+}
+
+.container {
+  width: 1920px;
+  margin: 0 auto;
+}
+
+
+.departments-and-goods-wrapper {
+  margin: 0 auto;
+  padding-left: 16px;
+  margin-top: 16px;
+  width: 1510px;
+  display: flex;
+  justify-content: space-between;
+}

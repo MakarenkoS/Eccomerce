@@ -1,0 +1,28 @@
+.rating {
+  width: 122px;
+  display: flex;
+  flex-wrap: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 13px 4px 3px;
+  &__text {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.1px;
+    color: #5e6366;
+  }
+
+  &__stars {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 66px;
+  }
+
+  &__star {
+    fill: #fb8200;
+  }
+}

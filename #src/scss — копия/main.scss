@@ -13,8 +13,17 @@ body {
 	box-sizing: inherit;
 }
 
-
 .container {
   width: 1920px;
   margin: 0 auto;
+}
+
+
+.departments-and-goods-wrapper {
+  margin: 0 auto;
+  padding-left: 16px;
+  margin-top: 16px;
+  width: 1510px;
+  display: flex;
+  justify-content: space-between;
 }

@@ -1,0 +1,69 @@
+@import "variables.scss"; 
+
+.show-options {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  label {
+    display: flex;
+    justify-content: space-between;;
+
+  }
+
+  &__wrapper {
+    height: 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 4px;
+    background-color: #EBF2FF;
+
+    &--filter {
+      width: 255px;
+
+      & label {
+        width: 85px;
+      }
+    }
+
+    &--view {
+      width: 136px;
+      & label {
+        width: 68px;
+      }
+    }
+  }
+
+  &__radio {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 36px;
+    justify-content: center;
+    align-items: center;
+    color: #5A5B6A;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 143%;
+  }
+
+  &__wrapper input[type='radio']:checked + .show-options__radio {
+    color: #2264D1;
+    background-color: #ffffff;
+    box-shadow: 0px 1px 2px rgba(27, 78, 163, 0.24), 0px 2px 4px rgba(41, 121, 255, 0.24);
+  
+  }
+
+  &__icon {
+    fill: #787885;
+  }
+
+ &__wrapper--view input[type='radio']:checked ~ .show-options__radio svg {
+   fill: $hoverColor;
+ }
+  
+}
+

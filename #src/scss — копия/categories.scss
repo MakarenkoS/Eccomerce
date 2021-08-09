@@ -2,7 +2,7 @@
 
 
 .categories {
-  width: 1490px;
+  width: 355px;
   padding-left: 40px;
   font-family: "Inter";
   &__list {
@@ -81,7 +81,6 @@
     &::after {
       position: absolute;
       content: "";
-      
       right: 25px;
       width: 12px;
       height: 9px;
