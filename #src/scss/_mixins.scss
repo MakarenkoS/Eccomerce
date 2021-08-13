@@ -1,0 +1,17 @@
+@mixin card-ticker($color, $bgcolor, $text) {
+  position: absolute;
+  content: $text;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  color: $color;
+  background-color: $bgcolor;
+  right: 0;
+  top: 0;
+  width: 70px;
+  height: 24px;
+  text-align: center;
+  padding-top: 4px;
+}
