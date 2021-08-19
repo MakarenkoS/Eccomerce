@@ -1,0 +1,53 @@
+
+@import '_mixins.scss';
+
+.cart-item {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  border: 1px solid rgba(0,0,0,0.3);
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  padding: 8px 2px;
+
+
+  &__name {
+    width: 300px;
+  }
+  &__quantity--wrapper {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+  }
+
+  &__quantity-button--inc, .cart-item__quantity-button--dec {
+    @include card-button;
+  }
+
+  &__quantity {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  &__price {
+    width: 150px;
+  }
+
+  &__button-close {
+    @include card-button;
+  }
+
+  &__empty {
+    margin: 0;
+    padding: 0;
+    margin: 0 auto;
+    margin-top: 100px;
+    font-size: 45px;  
+    display: block;
+    text-align: center;
+  }
+}

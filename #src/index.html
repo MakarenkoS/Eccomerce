@@ -29,21 +29,37 @@
             </li>
           </ul>
 
-          <p class="nav__search search-form">
-            <input type="text"
-              class="search-form__field"
+          <div class="nav__search search-form">
+            <input type="search"
+              class="search-form__input"
               placeholder="Enter goods name here"/>
-            <span
-              class="search-form__field-close search-form__field-close--show"
-            ></span>
             <span class="search-form__hint">Consumer Electronics</span>
-          </p>
+            <div class="search-form__modal-wrapper search-form__modal-wrapper--hidden">
+                <div class="search-form__modal">
+                  Идет поиск: 
+                  <span class="search-form__subject"></span>
+                  <div class="search-form__loader cssload-loader">
+                    <div class="cssload-inner cssload-one"></div>
+                    <div class="cssload-inner cssload-two"></div>
+                    <div class="cssload-inner cssload-three"></div>
+                  </div>
+                </div>
+            </div>
+          </div>
 
           <div class="nav__user user">
             <button class="button user__button--login button">Sign in</button>
             <button class="button user__button--cart button">My cart</button>
+            <div class="user__basket-wrapper user__basket-wrapper--hidden">
+              <div class="user__basket basket">
+                <h4 class="basket__caption">Items in Your cart:</h4>
+                <ul class="basket__list">
+                </ul>
+                <p class="basket__footer">Total price: <span class="basket__total-price"></span></p>
+              </div>
+            </div>
             <span class="user__items-quantity user__items-quantity--show"
-              >5</span
+              ></span
             >
             <img src="./img/image-8.jpg" alt="Photo" width="40" height="40" class="user__avatar"/>
           </div>
@@ -179,39 +195,59 @@
                   </p>
 
                   <ul class="categories__list categories__list--all nested">
-                    <li class="categories__item">some item</li>
-                    <li class="categories__item">some item</li>
-                    <li class="categories__item">some item</li>
-                  </ul>
-                </li>
-
-                <li class="categories__item">
-                  <p class="categories__name categories__name--title">
-                    Electronics
-                    <span class="caret"></span>
-                  </p>
-                  <ul
-                    class="categories__list categories__list--electronic nested"
-                  >
-                    <li class="categories__item">
+                    <li lass="categories__item">
                       <p class="categories__name categories__name--title">
-                        Cell Phones & Smartphones
+                        Electronics
                         <span class="caret"></span>
                       </p>
-                      <ul
-                        class="categories__list categories__list--smartphones nested"
-                      >
+                      <ul class="categories__list categories__list--electronic-items nested"> 
                         <li class="categories__item">
-                          <p class="categories__name">Cell Phone Accessories</p>
+                          <p class="categories__name categories__name--title">
+                            Cell Phones & Smartphones
+                            <span class="caret"></span>
+                          </p>
+                          <ul class="categories__list categories__list--smartphones-items nested">
+                            <li>
+                              <p class="categories__name">Cell Phone Accessories</p>
+                            </li>
+                            <li class="categories__item">
+                              <p class="categories__name">Cell Phone Gatgets</p>
+                            </li>
+                            <li class="categories__item">
+                              <p class="categories__name">Applications</p>
+                            </li>
+                            <li class="categories__item">
+                              <p class="categories__name">Smart Watches</p>
+                            </li>
+                            <li class="categories__item">
+                              <button
+                                class="categories__showmore-button categories__showmore-button--caret"
+                              >
+                                Show More
+                              </button>
+                            </li>
+                          </ul>   
+                        </li>  
+                      </ul>   
+                    </li>
+
+                    <li class="categories__item">
+                      <p class="categories__name categories__name--title">
+                        Business & Industrial
+                        <span class="caret"></span>
+                      </p>
+                      <ul class="categories__list categories__list--buisness-list nested">
+                        <li>
+                          <p class="categories__name">Business Lorem, ipsum dolor.</p>
                         </li>
                         <li class="categories__item">
-                          <p class="categories__name">Cell Phone Gatgets</p>
+                          <p class="categories__name">Industrial Lorem, ipsum dolor2.</p>
                         </li>
                         <li class="categories__item">
-                          <p class="categories__name">Applications</p>
+                          <p class="categories__name">Business Applications</p>
                         </li>
                         <li class="categories__item">
-                          <p class="categories__name">Smart Watches</p>
+                          <p class="categories__name">Smart Industrial Watches</p>
                         </li>
                         <li class="categories__item">
                           <button
@@ -222,12 +258,7 @@
                         </li>
                       </ul>
                     </li>
-                    <li class="categories__item">
-                      <p class="categories__name categories__name--title">
-                        Business & Industrial
-                        <span class="caret"></span>
-                      </p>
-                    </li>
+
                     <li class="categories__item">
                       <p
                         class="categories__name categories__name--title categories__name--with-description"
@@ -238,33 +269,100 @@
                         >
                         <span class="caret"></span>
                       </p>
+                      <ul class="categories__list categories__list--buisness-list nested">
+                        <li>
+                          <p class="categories__name">Industrial Computers </p>
+                        </li>
+                        <li class="categories__item">
+                          <p class="categories__name">Personal Computers</p>
+                        </li>
+                        <li class="categories__item">
+                          <p class="categories__name">Computer Data Sience</p>
+                        </li>
+                        <li class="categories__item">
+                          <p class="categories__name">Smart Modules</p>
+                        </li>
+                        <li class="categories__item">
+                          <button
+                            class="categories__showmore-button categories__showmore-button--caret"
+                          >
+                            Show More
+                          </button>
+                        </li>    
+                      </ul>
                     </li>
+
                     <li class="categories__item">
                       <p class="categories__name categories__name--title">
                         Consumer Electroinics
                         <span class="caret"></span>
                       </p>
+                      <ul class="categories__list categories__list--consumer-list nested">
+                        <li>
+                          <p class="categories__name">Gadgets</p>
+                        </li>
+                        <li class="categories__item">
+                          <p class="categories__name">Electronic Parts</p>
+                        </li>
+                        <li class="categories__item">
+                          <p class="categories__name">Applications</p>
+                        </li>
+                        <li class="categories__item">
+                          <button
+                            class="categories__showmore-button categories__showmore-button--caret"
+                          >
+                            Show More
+                          </button>
+                        </li>  
+                      </ul>
                     </li>
+
                     <li class="categories__item">
                       <p class="categories__name categories__name--title">
                         Home & Garden
                         <span class="caret"></span>
                       </p>
+                      <ul class="categories__list categories__list--home-list nested">
+                        <li>
+                          <p class="categories__name">Home Decor</p>
+                        </li>
+                        <li class="categories__item">
+                          <p class="categories__name">Garden Instrumentation</p>
+                        </li>
+                        <li class="categories__item">
+                          <p class="categories__name">Smart Home</p>
+                        </li>
+                      </ul>
                     </li>
+
                     <li class="categories__item">
                       <p class="categories__name categories__name--title">
                         Collectibles
                         <span class="caret"></span>
                       </p>
+                      <ul class="categories__list categories__list--collectibles-list nested">
+                        <li>
+                          <p class="categories__name">Rare Collections</p>
+                        </li>
+                        <li class="categories__item">
+                          <p class="categories__name">Unique Collections</p>
+                        </li>
+                        <li class="categories__item">
+                          <p class="categories__name">Other Collections</p>
+                        </li>
+                      </ul>
                     </li>
+
                     <li class="categories__item">
                       <button class="categories__showmore-button">
                         Expand
                       </button>
                     </li>
+                    
                   </ul>
                 </li>
               </ul>
+                 
               <div class="departments__filters filters">
                 <div class="filters__field filters__field--collapsed">
                   <p class="filters__name">
@@ -550,7 +648,8 @@
 
             <div class="goods__cards cards">
               <div class="cards__list">
-                <div class="cards__item card">
+                <div class="cards__item card" tabindex="0">
+                  <span class="visually-hidden card__name-for-basket">Vintage Typewriter</span>  
                   <img src="./img/card01.jpg" alt="card__image" width="227" height="224"/>
                   <a href="#" class="card__link">
                     <p class="card__description">
@@ -583,7 +682,8 @@
                     </button>
                   </div>
                 </div>
-                <div class="cards__item card">
+                <div class="cards__item card" tabindex="1">
+                  <span class="visually-hidden card__name-for-basket">Leather botinki</span>  
                   <img src="./img/card02.jpg" alt="card__image" width="226" height="224"/>
                   <a href="#" class="card__link">
                     <p class="card__description">
@@ -615,7 +715,8 @@
                     </button>
                   </div>
                 </div>
-                <div class="cards__item card">
+                <div class="cards__item card" tabindex="2">
+                  <span class="visually-hidden card__name-for-basket">Timesaving kitten</span>  
                   <img src="./img/card03.jpg" alt="card__image" width="227" height="224"/>
                   <a href="#" class="card__link">
                     <p class="card__description">
@@ -647,7 +748,8 @@
                     </button>
                   </div>
                 </div>
-                <div class="cards__item card">
+                <div class="cards__item card" tabindex="3">
+                  <span class="visually-hidden card__name-for-basket">Plastic useless plugs and tubes</span> 
                   <img src="./img/card04.jpg" alt="card__image" width="226" height="224"/>
                   <a href="#" class="card__link">
                     <p class="card__description">
@@ -680,7 +782,8 @@
                     </button>
                   </div>
                 </div>
-                <div class="cards__item card">
+                <div class="cards__item card" tabindex="4">
+                  <span class="visually-hidden card__name-for-basket">Creativity stimulating lotion</span> 
                   <img src="./img/card05.jpg" alt="card__image" width="227" height="224"/>
                   <a href="#" class="card__link">
                     <p class="card__description">
@@ -713,7 +816,8 @@
                     </button>
                   </div>
                 </div>
-                <div class="cards__item card">
+                <div class="cards__item card" tabindex="5">
+                  <span class="visually-hidden card__name-for-basket">Prototyping items</span> 
                   <img src="./img/card06.jpg" alt="card__image" width="227" height="224"/>
                   <a href="#" class="card__link">
                     <p class="card__description">
@@ -745,7 +849,8 @@
                     </button>
                   </div>
                 </div>
-                <div class="cards__item card">
+                <div class="cards__item card" tabindex="6">
+                  <span class="visually-hidden card__name-for-basket">John Von Ewalkin SPRING</span>
                   <img src="./img/card07.jpg" alt="card__image" width="227" height="224"/>
                   <a href="#" class="card__link">
                     <p class="card__description">
@@ -777,7 +882,8 @@
                     </button>
                   </div>
                 </div>
-                <div class="cards__item card">
+                <div class="cards__item card" tabindex="7">
+                  <span class="visually-hidden card__name-for-basket">Envelope, Stripes, Pencil and etc.</span>
                   <img src="./img/card08.jpg" alt="card__image" width="227" height="224"/>
                   <a href="#" class="card__link">
                     <p class="card__description">
@@ -809,7 +915,8 @@
                     </button>
                   </div>
                 </div>
-                <div class="cards__item card">
+                <div class="cards__item card" tabindex="8">
+                  <span class="visually-hidden card__name-for-basket">Professional teadrinking set</span>
                   <img src="./img/card09.jpg" alt="card__image" width="227" height="224"/>
                   <a href="#" class="card__link">
                     <p class="card__description">
@@ -841,7 +948,8 @@
                     </button>
                   </div>
                 </div>
-                <div class="cards__item card">
+                <div class="cards__item card" tabindex="9">
+                  <span class="visually-hidden card__name-for-basket">One string Bonsai description </span>
                   <img src="./img/card10.jpg" alt="card__image" width="227" height="224"/>
                   <a href="#" class="card__link">
                     <p class="card__description">
@@ -873,7 +981,8 @@
                     </button>
                   </div>
                 </div>
-                <div class="cards__item card">
+                <div class="cards__item card" tabindex="10">
+                  <span class="visually-hidden card__name-for-basket">Simply best item in town</span>
                   <img src="./img/card11.jpg" alt="card__image" width="227" height="224"/>
                   <a href="#" class="card__link">
                     <p class="card__description">
@@ -905,7 +1014,8 @@
                     </button>
                   </div>
                 </div>
-                <div class="cards__item card">
+                <div class="cards__item card" tabindex="11">
+                  <span class="visually-hidden card__name-for-basket">Cosmetics brand from Chelyabinsk</span>
                   <img src="./img/card12.jpg" alt="card__image" width="227" height="224"/>
                   <a href="#" class="card__link">
                     <p class="card__description">
@@ -952,5 +1062,6 @@
         </section> -->
       </main>
     </div>
+    <script src="js/script.js"></script>
   </body>
 </html>

@@ -1,6 +1,6 @@
 .caret {
   position: absolute;
-  top: 14px;
+  top: 12px;
   left: -20px;
   width: 12px;
   height: 10px;
@@ -12,4 +12,9 @@
   background-image: url("./../img/icons/icons.svg#caret");
   background-repeat: no-repeat;
   background-size: contain;
+  transform: rotate(-90deg);
+
+  &--open {
+    transform: rotate(0deg)
+  }
 }

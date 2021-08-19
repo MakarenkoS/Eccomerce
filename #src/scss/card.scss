@@ -9,12 +9,17 @@
   flex: 0 0 auto;
   flex-direction: column;
   justify-content: flex-start;
+  &:focus {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+
   &:hover {
     box-shadow: 0px 1px 1px rgba(58, 58, 68, 0.24),
       0px 2px 4px rgba(90, 91, 106, 0.24);
   }
 
-  & &__description {
+  &__description {
     margin: 0;
     padding: 0;
     flex: 0 0 auto;

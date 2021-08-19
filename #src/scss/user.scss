@@ -15,19 +15,35 @@
     width: 20px;
     height: 20px;
     position: absolute;
-    background-color: #F44336;
+    background-color: #f44336;
     color: #ffffff;
     font-family: "Quicksand";
     font-weight: 700;
     size: 14px;
     line-height: 17px;
     border-radius: 50%;
-   
   }
 
   &__avatar {
     margin-left: 15px;
     border-radius: 50%;
   }
+
+  &__basket-wrapper {
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
   
+
+    &--hidden {
+      display: none;
+    }
+  }
 }

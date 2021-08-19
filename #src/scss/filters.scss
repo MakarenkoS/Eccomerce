@@ -32,6 +32,7 @@
   &__caret.caret{
     left: 270px;
     background-image: url("./../img/icons/icons.svg#caretGrey");
+    transform: rotate(180deg);
   }
 
   &__list {
@@ -42,18 +43,29 @@
     padding-bottom: 8px;
     background-color: #f7f7fa;
     border-radius: 4px;
+    
   }
 
   &__item {
     position: relative;
-    margin-bottom: 10px;
+    z-index: 3;
+    padding-bottom: 10px;
     padding-left: 56px;
     font-family: "Inter";
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
     line-height: 150%;
-   
+    & label {
+      display: block;
+      width: 100%;
+    }
+    & label:hover {
+      cursor: pointer;
+      opacity: 0.8;
+      font-size: 21px;
+    }
+
   }
 
   &__checkbox {
@@ -65,6 +77,7 @@
     left: 19px;
     top: 2px;
     border-radius: 4px;
+
   }
   &__list:last-child {
     margin-bottom: 0;
@@ -78,7 +91,7 @@
 
   &__field--collapsed .filters__caret {
     background-image: url("./../img/icons/icons.svg#caret");
-    transform: rotate(180deg);
+    transform: rotate(0);
   }
 
   &__field--collapsed .filters__list {

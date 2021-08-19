@@ -43,7 +43,7 @@
   }
 
   &__name--with-description .caret{
-    top: 25px;
+    top: 21px;
   }
 
   &__name--title {
@@ -97,6 +97,12 @@
       background-repeat: no-repeat;
       background-size: fit;
     }
-
   }  
 }
+
+.categories__list.nested {
+  display: none;
+}
+
+
+

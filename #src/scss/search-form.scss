@@ -1,5 +1,4 @@
 .search-form {
- 
   position: relative;
   width: 1030px;
   display: flex;
@@ -19,13 +18,13 @@
     background-position: center;
   }
 
-  &__field {
+  &__input {
     transition: all 0.3s ease;
     width: 667px;
     height: 48px;
     border-radius: 99px;
-    background-color: #EDEDF0;
-    color: #0C2146;
+    background-color: #ededf0;
+    color: #0c2146;
     padding-left: 45px;
     padding-right: 25px;
     font-size: 20px;
@@ -36,7 +35,7 @@
       opacity: 0.75;
     }
     &:focus {
-      border: 1px solid rgba(0,0,0,0.5);
+      border: 1px solid rgba(0, 0, 0, 0.5);
     }
   }
 
@@ -46,23 +45,43 @@
     font-family: "Inter";
     line-height: 158%;
     letter-spacing: 0.0075em;
-    color: #2264D1;
+    color: #2264d1;
   }
-  
-  &__field-close {
-    content: "";
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    left: 635px;
-    top: 17px;
-    background-repeat: no-repeat;
-    background-position: center;
+
+  &__modal-wrapper {
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.2);
+    &--hidden {
+      display: none;
+    }
   }
-  
-  &__field-close--show {
-    cursor: pointer;
-    background-image: url("../img/icons/icons.svg#clear");
+
+  &__modal {
+    background-color: #fff;
+    width: 400px;
+    height: 200px;
+    padding-top: 20px;
+    text-align: center;
+    border-radius: 10px;
+    border: 10px solid rgba(47, 39, 119, 0.7)
   }
-  
+
+  &__subject {
+    display: block;
+    margin-top: 10px;
+    font-size: 21px;
+    color: green; 
+  }
+
+  &__loader {
+    margin-top: 20px;
+  }
 }
