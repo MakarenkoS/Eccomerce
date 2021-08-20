@@ -25,7 +25,24 @@ body {
   margin: 0 auto;
   padding-left: 16px;
   margin-top: 16px;
-  width: 1510px;
+  max-width: 1480px;
   display: flex;
   justify-content: space-between;
+}
+
+@media (max-width: $notebook-width) {
+  .container {
+    width: auto;
+    max-width: 1480px;
+  }
+  .departments-and-goods-wrapper {
+    max-width: 1300px;
+  }
+}
+
+
+@media (max-width: $tablet-width) {
+  .container {
+    max-width: 960px;
+  }
 }

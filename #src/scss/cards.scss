@@ -1,4 +1,7 @@
+@import "variables.scss";
+
 .cards {
+  display: flex;
   &__list {
     display: grid;
     grid-template-columns: repeat(4, 259px);
@@ -7,4 +10,27 @@
     grid-column-gap: 10px;
   }
   
+}
+
+@media(max-width: 1720px) {
+  .cards {
+    justify-content: center;
+    &__list {
+      grid-gap: 10px;
+      grid-template-columns: repeat(3, 259px);
+      
+    }
+  }
+}
+
+@media(max-width: 1200px) {
+  .cards {
+    justify-content: start;
+    max-width: 650px;
+    &__list {
+      grid-template-columns: repeat(2, 259px);
+      margin-top: 30px;
+      grid-gap: 50px;
+    }
+  }
 }

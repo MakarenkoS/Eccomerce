@@ -1,7 +1,7 @@
 @import "variables.scss";
 
 .departments {
-  width: 355px;
+  max-width: 355px;
   padding-top: 24px;  
 
   &__button {
@@ -26,6 +26,27 @@
 
   &__categories {
     margin-top: 40px;
+    width: 355px;
+    padding-left: 40px;
   }
 }
 
+@media(max-width: $notebook-width) {
+  .departments {
+    max-width: 335px;
+    &__categories {
+      margin-top: 40px;
+      width: 355px;
+      padding-left: 20px;
+    }
+  }
+}
+
+
+
+@media(max-width: $tablet-width) {
+  .departments {
+   
+
+  }
+}

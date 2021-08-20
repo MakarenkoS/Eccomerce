@@ -235,4 +235,5 @@ class Basket {
 
 
 
-const basket = new Basket(document.querySelector('.user'), document.querySelector('.cards__list'));
+const basket = new Basket(document.querySelector('.user'), document.querySelector('.cards__list'))
+console.log(window.screen.width)

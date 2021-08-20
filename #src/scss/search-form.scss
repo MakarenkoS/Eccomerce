@@ -1,8 +1,10 @@
+@import "variables.scss";
+
+
 .search-form {
   position: relative;
-  width: 1030px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   flex-direction: row;
 
@@ -46,6 +48,9 @@
     line-height: 158%;
     letter-spacing: 0.0075em;
     color: #2264d1;
+    @media(max-width: 1110px) {
+      display: none;
+    }
   }
 
   &__modal-wrapper {
@@ -85,3 +90,34 @@
     margin-top: 20px;
   }
 }
+
+
+@media(max-width: $notebook-width) {
+  .search-form {
+    &__input {
+      width: 100%;
+      padding-left: 40px;
+      font-size: 16px;
+    }
+
+    &__hint {
+      font-size: 14px;
+      margin-left: 10px;
+    }
+  }
+}
+
+// @media(max-width: $tablet-width) {
+//   .search-form {
+//    width: 300px;
+  
+//     &__input {
+//       width: 100%;
+//     }
+
+//     &__hint {
+//       display: none;
+//     }
+//   }
+
+

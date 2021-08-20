@@ -1,3 +1,5 @@
+  @import "variables.scss";
+
 .user {
   position: relative;
   display: flex;
@@ -47,3 +49,27 @@
     }
   }
 }
+
+
+@media(max-width: $tablet-width) {
+  .user {
+    min-width: 200px;
+  
+    &__button--login  {
+      padding: 15px 8px;
+      font-size: 14px;
+      line-height: 10px;
+    }
+
+    &__button--cart  {
+      padding: 15px 8px;
+      font-size: 14px;
+      line-height: 10px;  
+    }
+
+    &__items-quantity--show {
+      right: 50px;
+    }
+  }
+} 
+

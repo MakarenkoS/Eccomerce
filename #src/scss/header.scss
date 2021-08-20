@@ -1,18 +1,48 @@
+@import "variables.scss";
+
 .header {
-  width: 1920px;
+  max-width: 1920px;
   height: 68px;
   margin: 0 auto;
   padding: 0 16px;
   display: flex;
   flex-direction: row;
-  align-items: baseline;
+  align-items: center;
+  justify-content: space-between;
 
   &__logo {
     width: 174px; 
   }
 
   &__nav {
-    width: 1732px;
-    margin-left: 42px;
+    width: 1672px;
+  }
+}
+
+@media(max-width: $notebook-width) {
+  .header {
+    justify-content: flex-start;
+    width: auto;
+    max-width: 1480px;
+    
+    &__nav {
+      max-width: 1200px;
+      margin-left: 20px;
+    }
+  }
+}
+
+
+@media(max-width: $tablet-width) {
+  .header {
+    width: 960px;
+    align-items: center;
+    justify-content: flex-start;
+    &__nav {  
+      margin-left: 30px;
+    }
+    &__logo {
+      width: 115px; 
+    }
   }
 }
