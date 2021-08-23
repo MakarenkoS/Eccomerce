@@ -17,6 +17,10 @@
   &__nav {
     width: 1672px;
   }
+
+  &__user {
+    min-width: 282px;
+  }
 }
 
 @media(max-width: $notebook-width) {
@@ -35,7 +39,7 @@
 
 @media(max-width: $tablet-width) {
   .header {
-    width: 960px;
+    max-width: 960px;
     align-items: center;
     justify-content: flex-start;
     &__nav {  
@@ -43,6 +47,35 @@
     }
     &__logo {
       width: 115px; 
+    }
+    &__user {
+      width: 190px;
+    }
+
+
+  }
+}
+
+
+@media(max-width: $mobile-width) {
+  .header {
+    max-width: 768px;
+    justify-content: space-between;
+
+    &__nav {
+      width: 90%;
+      right: 10px;
+      top: 70px;
+      margin: 0;
+      padding: 0;
+    }
+
+    &__logo {
+      width: 174px; 
+    }
+
+    &__user {
+      margin-right: 7%;
     }
   }
 }

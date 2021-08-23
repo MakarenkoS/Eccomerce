@@ -15,7 +15,7 @@ body {
 	box-sizing: inherit;
 }
 
-.container {
+._container {
   width: 1920px;
   margin: 0 auto;
 }
@@ -31,7 +31,7 @@ body {
 }
 
 @media (max-width: $notebook-width) {
-  .container {
+  ._container {
     width: auto;
     max-width: 1480px;
   }
@@ -42,7 +42,17 @@ body {
 
 
 @media (max-width: $tablet-width) {
-  .container {
+  ._container {
     max-width: 960px;
+  }
+}
+
+@media (max-width: $mobile-width) {
+  ._container {
+    max-width: 760px;
+  }
+
+  .departments-and-goods-wrapper {
+    padding-left: 0;
   }
 }

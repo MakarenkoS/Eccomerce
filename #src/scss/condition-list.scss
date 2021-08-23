@@ -98,3 +98,18 @@
   }
 }
 
+@media (max-width: 450px) {
+  .condition-list {
+    flex-direction: column;
+   
+    &__field {
+      margin-bottom: 10px;
+    }
+
+    &__field:last-child {
+      margin-bottom: 0;
+     
+    }
+  }
+
+}

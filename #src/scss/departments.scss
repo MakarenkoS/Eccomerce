@@ -44,9 +44,9 @@
 
 
 
-@media(max-width: $tablet-width) {
+@media(max-width: $mobile-width) {
   .departments {
-   
+    display: none;
 
   }
 }

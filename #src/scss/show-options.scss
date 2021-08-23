@@ -1,14 +1,12 @@
-@import "variables.scss"; 
+@import "variables.scss";
 
 .show-options {
-
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   label {
     display: flex;
-    justify-content: space-between;;
-
+    justify-content: space-between;
   }
 
   &__wrapper {
@@ -17,7 +15,7 @@
     justify-content: space-between;
     align-items: center;
     border-radius: 4px;
-    background-color: #EBF2FF;
+    background-color: #ebf2ff;
 
     &--filter {
       width: 255px;
@@ -42,7 +40,7 @@
     height: 36px;
     justify-content: center;
     align-items: center;
-    color: #5A5B6A;
+    color: #5a5b6a;
     font-family: "Inter";
     font-style: normal;
     font-weight: 500;
@@ -53,20 +51,27 @@
     }
   }
 
-  &__wrapper input[type='radio']:checked + .show-options__radio {
-    color: #2264D1;
+  &__wrapper input[type="radio"]:checked + .show-options__radio {
+    color: #2264d1;
     background-color: #ffffff;
-    box-shadow: 0px 1px 2px rgba(27, 78, 163, 0.24), 0px 2px 4px rgba(41, 121, 255, 0.24);
-  
+    box-shadow: 0px 1px 2px rgba(27, 78, 163, 0.24),
+      0px 2px 4px rgba(41, 121, 255, 0.24);
   }
 
   &__icon {
     fill: #787885;
   }
 
- &__wrapper--view input[type='radio']:checked ~ .show-options__radio svg {
-   fill: $hoverColor;
- }
-  
+  &__wrapper--view input[type="radio"]:checked ~ .show-options__radio svg {
+    fill: $hoverColor;
+  }
 }
 
+@media (max-width: 450px) {
+  .show-options {
+    flex-direction: column;
+    &__wrapper--filter {
+      margin-bottom: 10px;
+    }
+  }
+}

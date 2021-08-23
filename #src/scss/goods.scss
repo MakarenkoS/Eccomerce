@@ -39,7 +39,7 @@
 @media (max-width: $notebook-width) {
   .goods {
     width: 100%;
-    
+
     &__row-wrapper {
       max-width: 800px;
       justify-content: center;
@@ -49,7 +49,7 @@
       width: auto;
       margin-right: 20px;
     }
-  
+
     &__show-options {
       width: auto;
     }
@@ -57,10 +57,16 @@
     &__related {
       margin-top: 20px;
     }
-   
   }
 }
 
+@media (max-width: 1192px) {
+  .goods {
+    &__cards {
+      max-width: 650px;
+    }
+  }
+}
 
 @media (max-width: 1192px) {
   .goods {
@@ -77,7 +83,6 @@
     &__condition {
       order: 2;
     }
-
   }
 }
 
@@ -97,8 +102,14 @@
     &__condition {
       order: 2;
     }
-
-  
-   
   }
 }
+
+@media (max-width: $mobile-width) {
+  .goods {
+    width: 100%;
+    margin-top: 0;
+    box-shadow: none;
+  }
+}
+

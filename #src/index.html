@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <div class="container">
+    <div class="_container">
       <header class="header">
         <div class="header__logo logo">
           <div class="logo__image-wrapper">
@@ -19,7 +19,10 @@
           </div>
         </div>
 
-        <nav class="header__nav nav">
+        <nav class="header__nav nav _open1">
+          <button class="nav__menu-icon _active">
+            <span></span>
+          </button>
           <ul class="nav__list">
             <li class="nav__item">
               <a href="#" class="nav__link">Sell on Shopka</a>
@@ -29,9 +32,10 @@
             </li>
           </ul>
 
-          <div class="nav__search search-form">
+          <div class="nav__search search-form _active">
+            <button class="search-form__search-button--mobile">Search</button>
             <input type="search"
-              class="search-form__input"
+              class="search-form__input  "
               placeholder="Enter goods name here"/>
             <span class="search-form__hint">Consumer Electronics</span>
             <div class="search-form__modal-wrapper search-form__modal-wrapper--hidden">
@@ -46,27 +50,34 @@
                 </div>
             </div>
           </div>
-
-          <div class="nav__user user">
-            <button class="button user__button--login button">Sign in</button>
-            <button class="button user__button--cart button">My cart</button>
-            <div class="user__basket-wrapper user__basket-wrapper--hidden">
-              <div class="user__basket basket">
-                <h4 class="basket__caption">Items in Your cart:</h4>
-                <ul class="basket__list">
-                </ul>
-                <p class="basket__footer">Total price: <span class="basket__total-price"></span></p>
-              </div>
-            </div>
-            <span class="user__items-quantity user__items-quantity--show"
-              ></span
-            >
-            <img src="./img/image-8.jpg" alt="Photo" width="40" height="40" class="user__avatar"/>
-          </div>
         </nav>
+        <div class="header__user user">
+          <button class="button user__button--login button">
+              <span class="user__button-text">
+                Sign in
+              </span>  
+          </button>
+          <button class="button user__button--cart button">
+            <span class="user__button-text">
+              My cart
+            </span>
+          </button>
+          <div class="user__basket-wrapper user__basket-wrapper--hidden">
+            <div class="user__basket basket">
+              <h4 class="basket__caption">Items in Your cart:</h4>
+              <ul class="basket__list">
+              </ul>
+              <p class="basket__footer">Total price: <span class="basket__total-price"></span></p>
+            </div>
+          </div>
+          <span class="user__items-quantity user__items-quantity--show"
+            ></span
+          >
+          <img src="./img/image-8.jpg" alt="Photo" width="40" height="40" class="user__avatar"/>
+        </div>
       </header>
     </div>
- <div class="container">
+    <div class="_container">
       <main class="main">
         <section class="menu">
           <ul class="menu__list">
@@ -1050,18 +1061,9 @@
               </div>
             </div> 
           </section>
-        </div>
-        <!-- <section class="test">
-          <div class="test__grid test__grid--1">1</div>
-          <div class="test__grid test__grid--2">2</div>
-          <div class="test__grid test__grid--3">3</div>
-          <div class="test__grid test__grid--4">4</div>
-          <div class="test__grid test__grid--5">5</div>
-          <div class="test__grid test__grid--6">6</div>
-          <div class="test__grid test__grid--7">7</div>
-        </section> -->
+        </div> -->
        </main>
-    </div>   
+  </div>   
     <script src="js/script.js"></script>
   </body>
 </html> 

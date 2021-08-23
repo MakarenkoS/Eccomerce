@@ -73,3 +73,46 @@
   }
 } 
 
+@media(max-width: $mobile-width) {
+  .user {
+    min-width: auto;
+    width: 120px;
+    // justify-content: flex-start;
+  
+    &__button-text  {
+      display: none;
+    }
+
+    &__button--cart  {
+      width: 30px;
+      background-position: center 5px;
+      background-image: url('./../img/icons/icons.svg#cart');
+      background-size: 80%;
+      background-repeat: no-repeat;
+    }
+
+    &__button--login  {
+      width: 30px;
+      background-position: center 5px;
+      background-image: url('./../img/icons/icons.svg#signin');
+      background-size: 80%;
+      background-repeat: no-repeat;
+    }
+
+
+    &__items-quantity--show {
+      right: 10px;
+    }
+
+    &__avatar{
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      left: 10px;
+      top: 0;
+    }
+  }
+} 
+
+
+

@@ -1,6 +1,5 @@
 @import "variables.scss";
 
-
 .search-form {
   position: relative;
   display: flex;
@@ -18,6 +17,10 @@
     background-image: url("../img/icons/icons.svg#search");
     background-repeat: no-repeat;
     background-position: center;
+  }
+
+  &__search-button--mobile {
+    display: none;
   }
 
   &__input {
@@ -48,7 +51,7 @@
     line-height: 158%;
     letter-spacing: 0.0075em;
     color: #2264d1;
-    @media(max-width: 1110px) {
+    @media (max-width: 1110px) {
       display: none;
     }
   }
@@ -63,7 +66,7 @@
     justify-content: center;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0, 0, 0, 0.2);
     &--hidden {
       display: none;
     }
@@ -76,14 +79,14 @@
     padding-top: 20px;
     text-align: center;
     border-radius: 10px;
-    border: 10px solid rgba(47, 39, 119, 0.7)
+    border: 10px solid rgba(47, 39, 119, 0.7);
   }
 
   &__subject {
     display: block;
     margin-top: 10px;
     font-size: 21px;
-    color: green; 
+    color: green;
   }
 
   &__loader {
@@ -91,8 +94,7 @@
   }
 }
 
-
-@media(max-width: $notebook-width) {
+@media (max-width: $notebook-width) {
   .search-form {
     &__input {
       width: 100%;
@@ -107,17 +109,51 @@
   }
 }
 
-// @media(max-width: $tablet-width) {
-//   .search-form {
-//    width: 300px;
-  
-//     &__input {
-//       width: 100%;
-//     }
+@media (max-width: $mobile-width) {
+  .search-form {
+    background-color: #fff;
+    z-index: 5;
+    &::after {
+      left: 25%;
+    }
+    &__input {
+      background-color: #ffffff;
+      color: #15428f;
+      display: none;
+      outline: none;
+      &:hover {
+        opacity: 0.75;
+      }
+      &:focus {
+        border: 1px solid rgba(0, 0, 0, 0.5);
+      }
+    }
 
-//     &__hint {
-//       display: none;
-//     }
-//   }
+    &__search-button--mobile {
+      display: block;
+      margin: 0 auto;
+      transition: color 0.3s ease;
+      text-decoration: none;
+      font-family: "Inter";
+      color: #5a5b6a;
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: 0.004em;
+      border: none;
+      background-color: transparent;
 
+      &:active {
+        background-color: $activeMenuColor;
+      }
+    }
+  }
 
+  .search-form._active::after   {
+    display: none;
+  }
+
+  .search-form._active .search-form__input   {
+      display: block;
+    }
+
+}
