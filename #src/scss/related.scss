@@ -57,6 +57,24 @@
   }
 }
 
+@media (max-width: $tablet-width) {
+  .related {
+    &__list {
+      max-width: 80%;
+      margin: 0 auto;
+    
+      margin-left: 9px;
+      padding-right: 20px;
+    }
+
+    &__caption {
+      margin-top: 5px;
+    }
+
+
+  }
+}
+
 @media (max-width: 625px) {
   .related {
     display: none;

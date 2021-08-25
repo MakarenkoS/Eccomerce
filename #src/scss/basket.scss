@@ -1,21 +1,35 @@
+@import "_mixins.scss";
+@import "variables.scss";
+
 .basket {
+  position: relative;
   background-color: #fff;
   width: 800px;
   height: 400px;
   padding-top: 20px;
   text-align: center;
   border-radius: 10px;
-  border: 10px solid rgba(47, 39, 119, 0.7);
+  border: 5px solid rgba(47, 39, 119, 0.7);
   display: flex;
   flex-direction: column;
   z-index: 5;
-  
-  
 
   &__caption {
     margin: 0;
     padding: 0;
     font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  &__close-button {
+    position: absolute;
+    padding: 0;
+    @include card-button;
+    width: 40px;
+    height: 40px;
+    top: -23px;
+    right: -23px;
+    padding: 9px 12px;
   }
 
   &__list {
@@ -54,5 +68,24 @@
   &__total-price {
     color: #210e4e;
     font-weight: 700;
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .basket {
+    width: 500px;
+    height: 400px;
+  }
+}
+
+@media (max-width: 550px) {
+  .basket {
+    width: 300px;
+    max-height: calc(100vh - 100px);
+
+    &__close-button {
+      top: -15px;
+      right: -10px;
+    }
   }
 }

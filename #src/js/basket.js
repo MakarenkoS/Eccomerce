@@ -4,34 +4,39 @@ class Storage {
   constructor() {
     //Начальные данные для корзины
     this.initialStorage = [
-      { id: 0, name: 'Vintage Typewriter', quantity: 1, price: '49.50' },
-      { id: 1, name: 'Lee Pucker design', quantity: 2, price: '12.50' },
-    ]
-    this.storage = this.initialStorage
-    this.setItems(this.storage)
+      { id: 0, name: "Vintage Typewriter", quantity: 1, price: "49.50" },
+      { id: 1, name: "Lee Pucker design", quantity: 2, price: "12.50" },
+    ];
+    this.storage = this.initialStorage;
+    this.setItems(this.storage);
   }
 
   //Запись в Local Storage
   setItems(storage) {
-    localStorage.setItem('Shop storage', JSON.stringify(storage))
+    localStorage.setItem("Shop storage", JSON.stringify(storage));
   }
 
   //Получение из Local Storage
   getItems() {
-    return JSON.parse(localStorage.getItem('Shop storage'))
+    return JSON.parse(localStorage.getItem("Shop storage"));
   }
 
   //Добавление элемента в хранилище
   addItem(item) {
-    const existsIndex = this.getElementNameId(item.name, this.storage)
-    // Если уже существует запись с таким именем, то у нее просто увеличивается счетчик quantity 
+    const existsIndex = this.getElementNameId(item.name, this.storage);
+    // Если уже существует запись с таким именем, то у нее просто увеличивается счетчик quantity
     if (existsIndex !== -1) {
-      this.changeQuantity(existsIndex, 1)
+      this.changeQuantity(existsIndex, 1);
     } else {
       //В качестве id берется длина массива записей
-      let tmpItem = {name: item.name, price: item.price, quantity: 1, id:this.storage.length }
-      this.storage = [...this.storage, tmpItem]
-      this.setItems(this.storage)
+      let tmpItem = {
+        name: item.name,
+        price: item.price,
+        quantity: 1,
+        id: this.storage.length,
+      };
+      this.storage = [...this.storage, tmpItem];
+      this.setItems(this.storage);
     }
   }
 
@@ -39,90 +44,97 @@ class Storage {
   removeItem(id) {
     this.storage = this.storage.filter((i) => i.id !== id);
     // Обновление всех индексов id после удаления
-    this.storage.forEach((item, i) =>  {
-      item.id = i
-    })
-    this.setItems(this.storage)
+    this.storage.forEach((item, i) => {
+      item.id = i;
+    });
+    this.setItems(this.storage);
   }
 
   // Вспомогательная функция поиска совпадений name в массиве объектов
   getElementNameId(name, arr) {
-    let findIndex = -1
+    let findIndex = -1;
     arr.forEach((item, index) => {
       if (item.name === name) {
-        findIndex = index
+        findIndex = index;
       }
-    })
-    return findIndex
+    });
+    return findIndex;
   }
 
-  // Изменение количества по указанному id  
+  // Изменение количества по указанному id
   changeQuantity(id, quantityDelta) {
     this.storage[id].quantity += quantityDelta;
 
     // При уменьшении quantiy до 0 элемент удаляется
-    if(this.storage[id].quantity <= 0) {
-      this.removeItem(id)
+    if (this.storage[id].quantity <= 0) {
+      this.removeItem(id);
     }
-    this.setItems(this.storage)
+    this.setItems(this.storage);
   }
 }
-
 
 // Класс для управления корзиной и добавлением в неё товаров
 class Basket {
   constructor(basket, goodsList) {
-    this.storage = new Storage()
+    this.storage = new Storage();
 
-    this.basket = basket
-    this.cardButton = basket.querySelector('.user__button--cart')
-    this.modalWrapper = basket.querySelector('.user__basket-wrapper')
-    this.modalWindow = basket.querySelector('.user__basket')
-    this.basketList = basket.querySelector('.basket__list')
-    this.basketTotalPrice = basket.querySelector('.basket__total-price')
-    this.basketQuantity = basket.querySelector('.user__items-quantity')
+    this.basket = basket;
+    this.cardButton = basket.querySelector(".user__button--cart");
+    this.modalWrapper = basket.querySelector(".user__basket-wrapper");
+    this.modalWindow = basket.querySelector(".user__basket");
+    this.basketList = basket.querySelector(".basket__list");
+    this.basketModalClose = basket.querySelector(".basket__close-button");
+    this.basketTotalPrice = basket.querySelector(".basket__total-price");
+    this.basketQuantity = basket.querySelector(".user__items-quantity");
 
     // Получение DOM объекта элемента списка товаров
-    this.goodsList = goodsList
+    this.goodsList = goodsList;
 
+    this.setBasketQuantity(this.storage.getItems());
 
-    this.setBasketQuantity(this.storage.getItems())
+    this.cardButton.addEventListener("click", (e) => this.onCardButtonClick(e));
+    this.modalWrapper.addEventListener("click", (e) => this.onModalClick(e));
 
-
-    this.cardButton.addEventListener('click', (e) => this.onCardButtonClick(e))
-    this.modalWrapper.addEventListener('click', (e) => this.onModalClick(e))
-    
-    this.goodsList.addEventListener('click', (e) => this.onGoodsCardClick(e))
+    this.goodsList.addEventListener("click", (e) => this.onGoodsCardClick(e));
   }
 
   onCardButtonClick(e) {
     //Показать окно и вызвать render корзины
-    this.modalWrapper.classList.remove("user__basket-wrapper--hidden")
-    this.renderBasket()
+    this.modalWrapper.classList.remove("user__basket-wrapper--hidden");
+    this.renderBasket();
   }
 
   // Установка иконки количества товаров в корзине, если они есть
   setBasketQuantity(storage) {
-    let quantity = 0 
+    let quantity = 0;
     if (storage.length > 0) {
-      this.basketQuantity.classList.add('user__items-quantity--show')
-      storage.forEach( item => quantity += item.quantity)
-      this.basketQuantity.innerHTML = quantity 
+      this.basketQuantity.classList.add("user__items-quantity--show");
+      storage.forEach((item) => (quantity += item.quantity));
+      this.basketQuantity.innerHTML = quantity;
     } else {
-      this.basketQuantity.classList.remove('user__items-quantity--show')
+      this.basketQuantity.classList.remove("user__items-quantity--show");
     }
+  }
+
+  closeModal() {
+    this.modalWrapper.classList.add("user__basket-wrapper--hidden");
   }
 
   // Обработка кликов по модальному окну
   onModalClick(e) {
     const $target = e.target;
-    if ($target.parentNode.closest('div') !== this.modalWindow) {
-      this.modalWrapper.classList.add('user__basket-wrapper--hidden');
+    if ($target.parentNode.closest("div") !== this.modalWindow) {
+      this.closeModal();
     } else {
       // Если был клик по кнопке, определяем, что за кнопка и выполняем действие
-      if ($target.tagName === 'BUTTON') {
-        const info = this.defineAction($target)
-        this.performAction(info)
+      if ($target.tagName === "BUTTON") {
+        if ($target.className === "basket__close-button") {
+          // Если кнопка закрытия, то закрываем окно товаров
+          this.closeModal();
+        } else {
+          const info = this.defineAction($target);
+          this.performAction(info);
+        }
       }
     }
   }
@@ -130,17 +142,17 @@ class Basket {
   // Выполнения действия с указанным id и перерисовка
   performAction({ id, action }) {
     switch (action) {
-      case 'REMOVE':
-        this.storage.removeItem(+id)
+      case "REMOVE":
+        this.storage.removeItem(+id);
         break;
-      case 'INC':
-        this.storage.changeQuantity(+id, -1)
+      case "INC":
+        this.storage.changeQuantity(+id, -1);
         break;
-      case 'DEC':
-        this.storage.changeQuantity(+id, 1)
-        break
+      case "DEC":
+        this.storage.changeQuantity(+id, 1);
+        break;
       default:
-        break
+        break;
     }
 
     this.renderBasket();
@@ -148,92 +160,124 @@ class Basket {
 
   // Определение типа кнопки
   defineAction($target) {
-    let info = { id: undefined, action: undefined }
+    let info = { id: undefined, action: undefined };
 
-    info.id = $target.closest('li').dataset.id
+    info.id = $target.closest("li").dataset.id;
 
     switch ($target.className) {
-      case 'cart-item__button-close':
-        info.action = 'REMOVE'
+      case "cart-item__button-remove":
+        info.action = "REMOVE";
         break;
-      case 'cart-item__quantity-button--inc':
-        info.action = 'INC'
+      case "cart-item__quantity-button--inc":
+        info.action = "INC";
         break;
-      case 'cart-item__quantity-button--dec':
-        info.action = 'DEC'
-        break
-
+      case "cart-item__quantity-button--dec":
+        info.action = "DEC";
+        break;
       default:
-        break
+        break;
     }
-    return info
+    return info;
   }
 
   // Перерисовка корзины
   renderBasket() {
-    let items = this.storage.getItems()
-    this.setBasketQuantity(items)
-    this.basketList.innerHTML = ''
-    let totalPrice = 0
+    let items = this.storage.getItems();
+    this.setBasketQuantity(items);
+    this.basketList.innerHTML = "";
+    let totalPrice = 0;
 
-    if(items.length === 0) {
-      let $el= document.createElement('li')
-      $el.classList.add('cart-item__empty')
-      $el.innerHTML = 'Cart is Empty!'
-      this.basketList.append($el)
+    if (items.length === 0) {
+      let $el = document.createElement("li");
+      $el.classList.add("cart-item__empty");
+      $el.innerHTML = "Cart is Empty!";
+      this.basketList.append($el);
     } else {
       //Map по элементам массива и добавление в список, а так же подсчет общей суммы заказа
       this.renderElement(
         items.map((i) => {
-          let $el = this.renderElement(i)
-          totalPrice += i.price * i.quantity
-          this.basketList.append($el)
+          let $el = this.renderElement(i);
+          totalPrice += i.price * i.quantity;
+          this.basketList.append($el);
         })
-        )
-      }
-      
+      );
+    }
 
-    this.basketTotalPrice.innerHTML = totalPrice.toFixed(2) + "$"
+    this.basketTotalPrice.innerHTML = totalPrice.toFixed(2) + "$";
   }
 
   renderElement(data) {
-    let $elem = document.createElement("li")
-    $elem.classList.add("basket__cart-item", "cart-item")
-    $elem.setAttribute("data-id", data.id)
+    let $elem = document.createElement("li");
+    $elem.classList.add("basket__cart-item", "cart-item");
+    $elem.setAttribute("data-id", data.id);
     $elem.innerHTML = `
-    <span class="cart-item__name">${data.name}</span>
+                    <span class="cart-item__name">${data.name}</span>
                     <p class="cart-item__quantity--wrapper">                   
                       <button class="cart-item__quantity-button--inc">-</button>
                       <span class="cart-item__quantity">${data.quantity}</span>   
                       <button class="cart-item__quantity-button--dec">+</button>
                     </p>
                     <span class="cart-item__price">${data.price}$</span>
-                    <button class="cart-item__button-close">x</button>
+                    <button class="cart-item__button-remove">x</button>
     `;
     return $elem;
   }
 
   // Обработка кликов по карточке товара
   onGoodsCardClick(e) {
-    const card = e.target.closest('.card')
-    if(!!card) {
-     const {name, price} = this.defineCardParams(card)
-     this.storage.addItem({name, price}) 
-     this.renderBasket()
+    const card = e.target.closest(".card");
+    if (!!card) {
+      const { name, price } = this.defineCardParams(card);
+      this.storage.addItem({name, price})
+      this.animateCart(card, this.basket);
+      this.renderBasket()
     }
+  }
+
+  animateCart(card, basket) {
+
+    let card_img = card.querySelector('img')
+    let card_coord = card_img .getBoundingClientRect();
+    let basket_coord = basket.getBoundingClientRect();
+
+    let $clone = card_img.cloneNode();
+
+    $clone.style.position = "fixed"
+    $clone.style.left = card_coord["x"] + "px"
+    $clone.style.top = card_coord["y"]  +"px"
+    $clone.style.zIndex = 10
+
+
+    let start_x = card_coord["x"] + 0.5 * card_coord["width"];
+    let start_y = card_coord["y"] + 0.5 * card_coord["height"];
+
+    let delta_x = (basket_coord["x"] + 0.5 * basket_coord['width']) - start_x
+    let delta_y = (basket_coord["y"] + 0.5 * basket_coord['height']) - start_y
+
+    document.body.append($clone)
+    void $clone.offsetWidth
+    $clone.style.transform = `translateX(${+delta_x}px)`
+    $clone.style.transform += `translateY(${+delta_y}px)`
+    $clone.style.transform +=`scale(0.25)`
+    $clone.style.opacity = 0.2
+
+    
+    $clone.style.transition = `1.2s`
+
+    setTimeout( ()=> {document.body.removeChild($clone)}, 900)
   }
 
   // Вспомгательная функция определения цены и названия товара карточки
   defineCardParams(card) {
-    const info = {}
-    info.name = card.querySelector('.card__name-for-basket').innerHTML
-    info.price = card.querySelector('.card__price').innerHTML.slice(1)
-    return info
-    
+    const info = {};
+    info.name = card.querySelector(".card__name-for-basket").innerHTML;
+    info.price = card.querySelector(".card__price").innerHTML.slice(1);
+    return info;
   }
 }
 
+const basket = new Basket(
+  document.querySelector(".user"),
+  document.querySelector(".cards__list")
+);
 
-
-const basket = new Basket(document.querySelector('.user'), document.querySelector('.cards__list'))
-console.log(window.screen.width)

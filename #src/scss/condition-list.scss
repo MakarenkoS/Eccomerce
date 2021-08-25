@@ -63,8 +63,6 @@
 
     }
 
-  
-
     &::after {
       font-size: 10px;
       transform: scaleX(1.6);
@@ -95,8 +93,15 @@
     appearance: none;
     border: none;
     outline: none;
+
+    & option {
+      background-color: white;
+      font-size: 16px;
+      font-family: "Inter";
+    }
   }
 }
+
 
 @media (max-width: 450px) {
   .condition-list {

@@ -2,14 +2,16 @@
 
 .search-form {
   position: relative;
-  display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
 
-  &::after {
+  &__search-button {
+    cursor: pointer;
+    border: none;
     content: "";
     position: absolute;
+    z-index: 3;
     width: 18px;
     height: 18px;
     left: 15px;
@@ -17,11 +19,11 @@
     background-image: url("../img/icons/icons.svg#search");
     background-repeat: no-repeat;
     background-position: center;
+    &--text {
+      display: none;
+    }
   }
 
-  &__search-button--mobile {
-    display: none;
-  }
 
   &__input {
     transition: all 0.3s ease;
@@ -45,7 +47,7 @@
   }
 
   &__hint {
-    margin-left: 30px;
+    margin-left: 20px;
     font-size: 20px;
     font-family: "Inter";
     line-height: 158%;
@@ -111,16 +113,28 @@
 
 @media (max-width: $mobile-width) {
   .search-form {
+    width: 100%;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    min-height: 50px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    align-content: center;
     background-color: #fff;
-    z-index: 5;
+    z-index: 7;
     &::after {
-      left: 25%;
+      left: 20px;
     }
     &__input {
+     
       background-color: #ffffff;
       color: #15428f;
       display: none;
       outline: none;
+      width: 90%;
       &:hover {
         opacity: 0.75;
       }
@@ -129,31 +143,54 @@
       }
     }
 
-    &__search-button--mobile {
-      display: block;
-      margin: 0 auto;
-      transition: color 0.3s ease;
-      text-decoration: none;
-      font-family: "Inter";
-      color: #5a5b6a;
-      font-size: 20px;
-      font-weight: 500;
-      letter-spacing: 0.004em;
-      border: none;
-      background-color: transparent;
+    &__search-button {
 
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      background-position-x: 10%;
+      background-size: 20px 20px;
+      background-color: #fff;
+      &--text {
+        display: block; 
+        font-family: "Inter";
+        color: #5A5B6A;
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 0.004em;  
+      }
       &:active {
         background-color: $activeMenuColor;
       }
     }
   }
 
-  .search-form._active::after   {
-    display: none;
+  .search-form._active .search-form__search-button  {
+   left: 10%;
+   top: 5px;
+   width: 20px;
+   background-color: transparent;
+   &--text {
+     display: none;
+   }
   }
+
+  .search-form._active  {
+      padding-left: 20px;
+      padding-right: 10px;
+    }
+
 
   .search-form._active .search-form__input   {
       display: block;
+      margin: 0 auto;
     }
+}
 
+
+@media (max-width: 565px) {
+  .search-form._active .search-form__search-button  {
+    left: 13%;
+  }
 }

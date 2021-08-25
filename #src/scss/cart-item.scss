@@ -1,5 +1,6 @@
 
 @import '_mixins.scss';
+@import 'variables.scss';
 
 .cart-item {
   position: relative;
@@ -37,8 +38,12 @@
     width: 150px;
   }
 
-  &__button-close {
+  &__button-remove {
     @include card-button;
+    border-radius: 50%;
+    background-color: rgba(226, 82, 62, 0.8);
+    color: #fff;
+    padding: 5px 11px;
   }
 
   &__empty {
@@ -49,5 +54,65 @@
     font-size: 45px;  
     display: block;
     text-align: center;
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .cart-item {
+  
+    justify-content: space-between;
+  
+    &__name {
+      width: 100px;
+    }
+    &__quantity--wrapper {
+      width: 200px;
+    }
+
+    &__price {
+      width: 100px;
+    }
+  
+
+  }
+}
+
+@media (max-width: 550px) {
+  .cart-item {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;;
+  
+    &__name {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    &__quantity--wrapper {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    &__price {
+      width: 100%;
+    }
+
+    &__button-remove {
+      position: absolute;
+      right: 20px;
+      top: 40px;
+    }
+
+    &__empty {
+      margin: 0;
+      padding: 0;
+      margin: 0 auto;
+      margin-top: 100px;
+      font-size: 30px;  
+     
+    }
+
+
+    
   }
 }
